@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hole : MonoBehaviour
 {
     SpriteRenderer sr;
-    public Color newColor;
+    private Color _newColor;
 
     void Start()
     {
@@ -23,7 +23,7 @@ public class Hole : MonoBehaviour
     {
         while (sr.color.a > 0)
         {
-            sr.color = Color.Lerp(sr.color, newColor, 0.5f * Time.deltaTime);
+            sr.color = Color.Lerp(sr.color, _newColor, 0.5f * Time.deltaTime);
             yield return null;
         }
     }

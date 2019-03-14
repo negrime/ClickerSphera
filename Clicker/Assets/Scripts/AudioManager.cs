@@ -9,11 +9,14 @@ public class Sound
     public AudioClip clip;
 
     private AudioSource _source;
+    [Range(0, 1)]
+    public float volume;
 
     public void SetSource(AudioSource source)
     {
         _source = source;
         source.clip = clip;
+        source.volume = volume;
     }
 
     public void Play()

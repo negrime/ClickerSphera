@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    public GameManager gm;
+    private GameManager _gm;
+
+    private AudioManager _am;
     // Start is called before the first frame update
     void Start()
     {
-        gm = FindObjectOfType<GameManager>();
+        _gm = FindObjectOfType<GameManager>();
+        _am = FindObjectOfType<AudioManager>();
+        
     }
 
     // Update is called once per frame
@@ -18,10 +22,11 @@ public class Target : MonoBehaviour
         transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f) * Time.deltaTime;
         else
         {
-            gm.Delete();
-            gm.SubtractScore();
+            _am.PlaySound("NoTime");
+            _gm.Delete();
+            _gm.SubtractScore();
             Destroy(transform.gameObject);
+            _gm.currentCombo = 0;
         }
-        
     }
 }
