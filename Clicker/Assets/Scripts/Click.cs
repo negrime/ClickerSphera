@@ -40,7 +40,8 @@ public class Click : MonoBehaviour
                     Destroy(hit.transform.gameObject);
                     _gm.currentCombo++;
                 }
-
+             
+                _gm.Combo();
             }
             else
             {
