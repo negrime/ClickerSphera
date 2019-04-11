@@ -16,7 +16,8 @@ public class Sound
     {
         _source = source;
         source.clip = clip;
-        source.volume = volume;
+        source.volume =  PlayerPrefs.GetInt("Sound") == 0 ? 0 : volume;
+
     }
 
     public void Play()
